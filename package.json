@@ -4,8 +4,8 @@
   "description": "Api de alimentos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.js"
+    "test": "jest",
+    "start": "nodemon src/inx.js"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +14,9 @@
     "node": "^21.6.1"
   },
   "devDependencies": {
-    "nodemon": "^3.0.3"
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.3",
+    "supertest": "^6.3.4"
   },
   "dependencies": {
     "dotenv": "^16.4.1",

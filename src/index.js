@@ -30,12 +30,23 @@ db.once("open", () =>{
 const  alimentoSchema = new mongoose.Schema({
     id: Number,
     codigo: Number,
+    subgrupo: Number,
     grupo: Number,
     nombre: String
 })
 
 
 const alimento = mongoose.model("alimento", alimentoSchema);
+
+app.use((req, res, next) => {
+    const authToken = req.headers["authorization"];
+
+    if(authToken == "Dahy miToken123"){
+        next();
+    } else{
+        res.status(401).send("Acceso no autorizado");
+    }
+});
 
 
 
@@ -53,7 +64,7 @@ app.get("/alimentos",async (req , res) => {
     }
 });
 app.post("/alimentos", async (req, res) =>{
-    const  alimento = new Alimento({
+    const  alimento = new alimento({
         codigo: req.body.codigo,
         nombre: req.body.nombre,
         grupo: req.body.grupo,
