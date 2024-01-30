@@ -121,5 +121,8 @@ app.get("/alimentos/:id", async (req, res) => {
 
     }   
 });
-
+const server = app.listen(3000, () => {
+    console.log("Servidor ejecutándose en http://localhost:3000/");
+  });
+  
 module.exports = app;
