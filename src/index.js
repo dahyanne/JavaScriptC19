@@ -38,16 +38,6 @@ const  alimentoSchema = new mongoose.Schema({
 
 const alimento = mongoose.model("alimento", alimentoSchema);
 
-app.use((req, res, next) => {
-    const authToken = req.headers["authorization"];
-
-    if(authToken == "Dahy miToken123"){
-        next();
-    } else{
-        res.status(401).send("Acceso no autorizado");
-    }
-});
-
 
 
 app.get("/", (req, res) => {
@@ -121,8 +111,9 @@ app.get("/alimentos/:id", async (req, res) => {
 
     }   
 });
-const server = app.listen(3000, () => {
-    console.log("Servidor ejecutándose en http://localhost:3000/");
+
+const server = app.listen(4000, () => {
+    console.log("Servidor ejecutándose en http://localhost:4000/");
   });
   
 module.exports = app;
